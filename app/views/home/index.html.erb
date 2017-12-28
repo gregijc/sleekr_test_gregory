@@ -1,0 +1,26 @@
+All Words : 
+<%
+	@words.each_with_index do |word,index|
+%>
+		<%=word.word%>
+		<%=",".html_safe unless (index == @words.size-1)%>
+<%
+	end
+%>
+
+
+<br><br>
+Random Word :
+<%= @random_word %>
+
+
+<%= form_tag(root_path, :method => "get", id: "search-form") do %>
+
+<%= text_field_tag :inputted_word, params[:inputted_word], placeholder: "input word"%>
+<%= hidden_field_tag :selected_word, params[:selected_word], value: @selected_word%> 
+<%= submit_tag "Search" , class: "btn btn-default btn-primary btn_search" %>
+
+<%end%>
+
+
+<%= @notice %>

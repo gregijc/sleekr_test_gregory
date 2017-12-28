@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Ms Words</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Word</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ms_words.each do |ms_word| %>
+      <tr>
+        <td><%= ms_word.word %></td>
+        <td><%= link_to 'Show', ms_word %></td>
+        <td><%= link_to 'Edit', edit_ms_word_path(ms_word) %></td>
+        <td><%= link_to 'Destroy', ms_word, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ms word', new_ms_word_path %>
